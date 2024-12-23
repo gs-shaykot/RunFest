@@ -35,6 +35,13 @@ async function run() {
         });
 
 
+        // Marathons API FOR ALL DATA:
+        app.get('/marathons', async (req, res) => {
+            const cursor = MarathonCollection.find();
+            const result = await cursor.toArray();
+            res.send(result)
+        })
+
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
