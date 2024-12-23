@@ -34,6 +34,13 @@ async function run() {
             res.send(result);
         });
 
+        // Marathons API FOR Limited Home:
+        app.get('/marathons/home', async (req, res) => {
+            const today = new Date().toISOString();
+            const cursor = MarathonCollection.find({ registrationEnd: { $gte: today } });
+            const result = await cursor.limit(6).toArray();
+            res.send(result)
+        })
 
         // Marathons API FOR ALL DATA:
         app.get('/marathons', async (req, res) => {
