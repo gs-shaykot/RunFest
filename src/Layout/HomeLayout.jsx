@@ -15,6 +15,8 @@ const HomeLayout = () => {
             <Banner></Banner>
             <Benefit></Benefit>
             <SixMarathon></SixMarathon>
+            <Upcoming></Upcoming>
+            <Review></Review>
         </div>
     );
 };
