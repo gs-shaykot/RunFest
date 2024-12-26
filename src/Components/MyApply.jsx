@@ -154,7 +154,7 @@ const MyApply = () => {
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <h1 className="font-bebas text-center text-3xl md:text-4xl font-semibold underline mb-4">
-                        Running Marathons
+                        Apply Marathon
                     </h1>
                     <div className="modal-action">
                         {Applied.filter((data) => data._id === selectedID).map((data) => (
@@ -255,12 +255,24 @@ const MyApply = () => {
                                     ></textarea>
                                 </div>
 
-                                {/* Submit Button */}
+                                {/* Submit Button
                                 <button
                                     type="submit"
                                     className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600"
                                 >
                                     Update
+                                </button> */}
+                                <input
+                                    type="submit"
+                                    value="Submit"
+                                    className="w-full bg-primary text-secondary font-bold mb-3 py-2 px-4 rounded hover:bg-blue-600"
+                                />
+
+                                <button type="button" className="btn w-full bg-secondary text-white py-2 px-4 rounded hover:bg-blue-600" onClick={() => {
+                                    document.getElementById('my_modal_5').close()
+                                    setSelectedID(null)
+                                }}>
+                                    Close
                                 </button>
                             </form>
                         ))}
