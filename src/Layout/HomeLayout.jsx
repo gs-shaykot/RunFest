@@ -14,6 +14,7 @@ const HomeLayout = () => {
             </Helmet>
             <Banner></Banner>
             <Benefit></Benefit>
+            <SixMarathon></SixMarathon>
         </div>
     );
 };
