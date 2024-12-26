@@ -27,7 +27,7 @@ const LogIn = () => {
                 });
                 navigate(location?.state ? location.state : '/')
                 const user = { Name: res.user.displayName, email: email }
-                axios.post('http://localhost:5111/jwt', user, { withCredentials: true })
+                axios.post('https://assignment-11-server-green-kappa.vercel.app/jwt', user,{withCredentials:true})
                     .then(data => {
                         console.log(data)
                     })
