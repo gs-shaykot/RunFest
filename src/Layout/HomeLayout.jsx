@@ -13,6 +13,7 @@ const HomeLayout = () => {
                 <title>Home</title>
             </Helmet>
             <Banner></Banner>
+            <Benefit></Benefit>
         </div>
     );
 };
