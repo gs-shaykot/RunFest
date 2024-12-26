@@ -16,7 +16,7 @@ const AddForm = () => {
         formVals.contactEmail = user.email
         formVals.totalRegistrationCount = 0
         axios
-            .post('https://assignment-11-server-green-kappa.vercel.app//marathons', formVals)
+            .post('https://assignment-11-server-green-kappa.vercel.app/marathons', formVals)
             .then((response) => {
                 Swal.fire({
                     title: "Succeess",

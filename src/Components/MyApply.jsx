@@ -19,7 +19,7 @@ const MyApply = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`https://assignment-11-server-green-kappa.vercel.app//applied/candidate?email=${user.email}&search=${search}`, { withCredentials: true })
+        axios.get(`https://assignment-11-server-green-kappa.vercel.app/applied/candidate?email=${user.email}&search=${search}`, { withCredentials: true })
             .then(response => {
                 setMyApply(response.data);
                 setLoading(false);
@@ -42,7 +42,7 @@ const MyApply = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://assignment-11-server-green-kappa.vercel.app//applied/all/${id}`,)
+                axios.delete(`https://assignment-11-server-green-kappa.vercel.app/applied/all/${id}`,)
                     .then(response => {
                         const data = response.data;
                         if (data.deletedCount) {
@@ -67,7 +67,7 @@ const MyApply = () => {
         const formVals = Object.fromEntries(formData.entries());
         formVals.contactEmail = user.email;
 
-        axios.put(`https://assignment-11-server-green-kappa.vercel.app//applied/all/${selectedID}`, formVals)
+        axios.put(`https://assignment-11-server-green-kappa.vercel.app/applied/all/${selectedID}`, formVals)
             .then(response => {
                 Swal.fire({
                     title: "Succeess",

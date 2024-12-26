@@ -17,7 +17,7 @@ const EvenReg = () => {
         const formData = new FormData(e.target);
         const formVals = Object.fromEntries(formData.entries());
         axios
-            .post('https://assignment-11-server-green-kappa.vercel.app//applied', formVals)
+            .post('https://assignment-11-server-green-kappa.vercel.app/applied', formVals)
             .then((response) => {
                 Swal.fire({
                     title: "Succeess",
@@ -29,7 +29,7 @@ const EvenReg = () => {
                 console.error('Error posting data:', error.response ? error.response.data : error.message);
             });
         // Update the totalRegistrationCount+=1
-        axios.patch(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/${eventData._id}`, {
+        axios.patch(`https://assignment-11-server-green-kappa.vercel.app/marathons/all/${eventData._id}`, {
             totalRegistrationCount: eventData.totalRegistrationCount + 1
         })
             .then(response => {

@@ -15,7 +15,7 @@ const AllMarathon = () => {
     useEffect(() => {
 
         axios
-            .get('https://assignment-11-server-green-kappa.vercel.app//marathons', { withCredentials: true })
+            .get('http://localhost:5111/marathons', { withCredentials: true })
             .then(response => {
                 console.log('Initial Data Fetch:', response.data);
                 setMarathons(response.data);
@@ -31,11 +31,10 @@ const AllMarathon = () => {
         fetchSortData(sortType);
     };
 
-    const fetchSortData = (sortType) => {
-        // setIsSorting(true);   
+    const fetchSortData = (sortType) => { 
 
         axios
-            .get(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/sorted/${sortType}`, { withCredentials: true })
+            .get(`http://localhost:5111/marathons/all/sorted/${sortType}`, { withCredentials: true })
             .then(response => {
                 console.log('Sorted Data:', response.data);
                 setMarathons(response.data);

@@ -8,7 +8,7 @@ const EveDetail = () => {
     const [data, setData] = useState({})
     const { id } = useParams()
     useEffect(() => {
-        axios.get(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/${id}`, { withCredentials: true })
+        axios.get(`https://assignment-11-server-green-kappa.vercel.app/marathons/all/${id}`, { withCredentials: true })
             .then(res => setData(res.data))
     }, [])
     const { image, marathonTitle, location, registrationStart, registrationEnd, eventDate, eventType, registrationFee, contactEmail, organizer, totalRegistrationCount } = data;

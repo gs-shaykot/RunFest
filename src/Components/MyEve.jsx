@@ -15,7 +15,7 @@ const MyEve = () => {
     const [selectedID, setSelectedID] = useState(null)
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get(`https://assignment-11-server-green-kappa.vercel.app//marathons/email/?contactEmail=${user.email}`, { withCredentials: true })
+        axios.get(`https://assignment-11-server-green-kappa.vercel.app/marathons/email/?contactEmail=${user.email}`, { withCredentials: true })
             .then(response => {
                 setMyCamp(response.data);
                 setLoading(false);
@@ -38,7 +38,7 @@ const MyEve = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/${id}`)
+                axios.delete(`https://assignment-11-server-green-kappa.vercel.app/marathons/all/${id}`)
                     .then(response => {
                         const data = response.data;
                         if (data.deletedCount) {
@@ -63,7 +63,7 @@ const MyEve = () => {
         const formVals = Object.fromEntries(formData.entries());
 
         formVals.contactEmail = user.email;
-        axios.put(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/${selectedID}`, formVals)
+        axios.put(`https://assignment-11-server-green-kappa.vercel.app/marathons/all/${selectedID}`, formVals)
             .then(response => {
                 Swal.fire({
                     title: "Succeess",
