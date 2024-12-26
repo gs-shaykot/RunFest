@@ -10,12 +10,12 @@ const AllMarathon = () => {
 
     const [marathons, setMarathons] = useState([]);
     const [isSorting, setIsSorting] = useState(false);
+    const [sortType, setSortType] = useState('')
 
     useEffect(() => {
-        if (isSorting) return;
 
         axios
-            .get('http://localhost:5111/marathons', { withCredentials: true })
+            .get('https://assignment-11-server-green-kappa.vercel.app//marathons', { withCredentials: true })
             .then(response => {
                 console.log('Initial Data Fetch:', response.data);
                 setMarathons(response.data);
@@ -23,7 +23,7 @@ const AllMarathon = () => {
             .catch(error => {
                 console.error('Error fetching marathons:', error);
             });
-    }, [isSorting]); 
+    }, []);
 
     const handleSortChange = (e) => {
         const sortType = e.target.value;
@@ -31,18 +31,17 @@ const AllMarathon = () => {
         fetchSortData(sortType);
     };
 
-    const fetchSortData = (sortType) => { 
-        setIsSorting(true);  
+    const fetchSortData = (sortType) => {
+        // setIsSorting(true);   
+
         axios
-            .get(`http://localhost:5111/marathons/all/sorted/${sortType}`, { withCredentials: true })
+            .get(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/sorted/${sortType}`, { withCredentials: true })
             .then(response => {
                 console.log('Sorted Data:', response.data);
-                setMarathons(response.data); 
-                setIsSorting(false);  
+                setMarathons(response.data);
             })
             .catch(error => {
-                console.error('Error fetching sorted data:', error); 
-                setIsSorting(false); 
+                console.error('Error fetching sorted data:', error);
             });
     };
 

@@ -17,7 +17,7 @@ const EvenReg = () => {
         const formData = new FormData(e.target);
         const formVals = Object.fromEntries(formData.entries());
         axios
-            .post('http://localhost:5111/applied', formVals)
+            .post('https://assignment-11-server-green-kappa.vercel.app//applied', formVals)
             .then((response) => {
                 Swal.fire({
                     title: "Succeess",
@@ -29,7 +29,7 @@ const EvenReg = () => {
                 console.error('Error posting data:', error.response ? error.response.data : error.message);
             });
         // Update the totalRegistrationCount+=1
-        axios.patch(`http://localhost:5111/marathons/all/${eventData._id}`, {
+        axios.patch(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/${eventData._id}`, {
             totalRegistrationCount: eventData.totalRegistrationCount + 1
         })
             .then(response => {
@@ -51,7 +51,7 @@ const EvenReg = () => {
             <h1 className='mt-5 font-bebas text-center text-4xl md:text-5xl font-semibold underline mb-8'>
                 Running Marathons
             </h1>
-            <form onSubmit={handleRegistration} className="w-full max-w-lg mx-auto p-4 bg-white shadow rounded">
+            <form onSubmit={handleRegistration} className="w-11/12 md:w-full max-w-lg mx-auto p-4 bg-white shadow rounded mb-6">
                 <h2 className="text-2xl font-bold mb-4 text-center">Marathon Registration</h2>
 
                 {/* Email */}

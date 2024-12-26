@@ -8,7 +8,7 @@ const EveDetail = () => {
     const [data, setData] = useState({})
     const { id } = useParams()
     useEffect(() => {
-        axios.get(`http://localhost:5111/marathons/all/${id}`, { withCredentials: true })
+        axios.get(`https://assignment-11-server-green-kappa.vercel.app//marathons/all/${id}`, { withCredentials: true })
             .then(res => setData(res.data))
     }, [])
     const { image, marathonTitle, location, registrationStart, registrationEnd, eventDate, eventType, registrationFee, contactEmail, organizer, totalRegistrationCount } = data;
@@ -27,7 +27,7 @@ const EveDetail = () => {
                         <span className="loading loading-bars loading-lg"></span>
                     </div>
                 ) : (
-                    <div className={`container flex flex-col md:flex-row shadow-lg rounded-lg overflow-hidden p-6 mx-auto`}>
+                    <div className={`container w-11/12 md:w-auto flex flex-col md:flex-row shadow-lg rounded-lg overflow-hidden p-6 mx-auto`}>
                         {/* Image Section */}
                         <div className="w-full md:w-1/3">
                             <img
@@ -61,7 +61,7 @@ const EveDetail = () => {
                             </div>
 
                             {/* Countdown Timer */}
-                            <div className='grid grid-cols-2 place-items-center'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 place-items-start md:place-items-center'>
                                 {!isRegistrationClosed && (
                                     <div className="mt-6 order-last 
                                             className='w-40 h-40'">

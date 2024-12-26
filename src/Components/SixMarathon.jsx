@@ -8,7 +8,7 @@ const SixMarathon = () => {
     const [marathons, setMarathons] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5111/marathons/home')
+        axios.get('https://assignment-11-server-green-kappa.vercel.app//marathons/home')
             .then(response => {
                 setMarathons(response.data);
             })

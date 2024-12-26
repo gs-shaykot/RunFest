@@ -16,7 +16,7 @@ const AddForm = () => {
         formVals.contactEmail = user.email
         formVals.totalRegistrationCount = 0
         axios
-            .post('http://localhost:5111/marathons', formVals)
+            .post('https://assignment-11-server-green-kappa.vercel.app//marathons', formVals)
             .then((response) => {
                 Swal.fire({
                     title: "Succeess",
@@ -36,7 +36,7 @@ const AddForm = () => {
             <form onSubmit={handleAddMarathon} className="w-full max-w-lg mx-auto p-4 bg-white shadow rounded">
                 <div className="grid grid-cols-2 gap-3">
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">Contact At</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">Contact At</label>
                         <input
                             type="email"
                             name="contactEmail"
@@ -48,7 +48,7 @@ const AddForm = () => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">Organizer Name</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">Organizer</label>
                         <input
                             type="text"
                             name="organizer"
@@ -62,7 +62,7 @@ const AddForm = () => {
                 </div>
 
                 <div className="mb-4">
-                    <label className="block font-medium mb-2">Marathon Title</label>
+                    <label className="text-sm md:text-base block font-medium mb-2">Marathon Title</label>
                     <input
                         type="text"
                         name="marathonTitle"
@@ -72,7 +72,7 @@ const AddForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block font-medium mb-2">Event Start</label>
+                    <label className="text-sm md:text-base block font-medium mb-2">Event Start</label>
                     <input
                         type="date"
                         name="eventDate"
@@ -83,7 +83,7 @@ const AddForm = () => {
 
                 <div className="grid grid-cols-2 gap-3">
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">Start Registration Date</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">Start Registration Date</label>
                         <input
                             type="date"
                             name="registrationStart"
@@ -93,7 +93,7 @@ const AddForm = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">End Registration Date</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">End Registration Date</label>
                         <input
                             type="date"
                             name="registrationEnd"
@@ -105,7 +105,7 @@ const AddForm = () => {
 
                 <div className="grid grid-cols-2 gap-3">
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">Location</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">Location</label>
                         <input
                             type="text"
                             name="location"
@@ -116,7 +116,7 @@ const AddForm = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">Running Distance</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">Running Distance</label>
                         <select name="eventType" className="w-full px-3 py-2 border rounded" required>
                             <option value="25k">25k</option>
                             <option value="10k">10k</option>
@@ -127,7 +127,7 @@ const AddForm = () => {
 
                 <div className="grid grid-cols-2 gap-3">
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">Marathon Image</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">Marathon Image</label>
                         <input
                             type="url"
                             name="image"
@@ -137,7 +137,7 @@ const AddForm = () => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block font-medium mb-2">Ticket Price</label>
+                        <label className="text-sm md:text-base block font-medium mb-2">Ticket Price</label>
                         <input
                             type="number"
                             name="registrationFee"
@@ -149,7 +149,7 @@ const AddForm = () => {
                 </div>
 
                 <div className="mb-4">
-                    <label className="block font-medium mb-2">Description</label>
+                    <label className="text-sm md:text-base block font-medium mb-2">Description</label>
                     <textarea
                         name="description"
                         className="w-full px-3 py-2 border rounded"

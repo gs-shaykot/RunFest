@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider'; 
+import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2'
 
 const Navbar = () => {
@@ -43,14 +43,39 @@ const Navbar = () => {
                                     d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul
-                            tabIndex={0}
-                            className="z-10 menu menu-sm dropdown-content bg-base-100 rounded-sm mt-3 w-52 p-2 shadow">
-                            <li><a>Marathons</a></li>
-                            <li><a>Dashboard</a></li>
-                            <li><a>Login</a></li>
-                            <li><a>Register</a></li>
-                        </ul>
+                        {
+                            user ?
+                                <ul
+                                    tabIndex={0}
+                                    className="z-10 menu menu-sm dropdown-content bg-base-100 rounded-sm mt-3 w-52 p-2 shadow">
+                                    <li>
+                                        <NavLink to='/'>Home</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/allMarathon'>Marathons</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard'>Dashboard</NavLink>
+                                    </li>
+                                </ul> :
+                                <ul
+                                    tabIndex={0}
+                                    className="z-10 menu menu-sm dropdown-content bg-base-100 rounded-sm mt-3 w-52 p-2 shadow">
+                                    <li>
+                                        <NavLink to='/'>Home</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/allMarathon'>Marathons</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/login'>Login</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/register'>Register</NavLink>
+                                    </li>
+                                </ul>
+                        }
+
                     </div>
                     <div className='flex justify-center items-center'>
                         <img className='w-14 h-14' src="https://i.ibb.co.com/bPjkfDc/logo.gif" alt="" />
