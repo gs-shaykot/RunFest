@@ -13,6 +13,7 @@ Key features include:
 - **Authentication**: Secure login/registration system, with Google social login.
 - **Personalized Dashboards**: Users can view and manage their marathon events and application.
 - **Unique Design**: An eye-catching, responsive design adaptable to any device.
+- **User Infor**: User Name and logout Button onClicking profile icon.
 
 ## ⚙️ Technologies Used
 - **React.js** for building the user interface.
