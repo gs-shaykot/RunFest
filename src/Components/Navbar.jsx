@@ -24,8 +24,8 @@ const Navbar = () => {
                     icon: "error",
                 });
             });
-    };
-
+    }; 
+    // scroll effect
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 10) {
