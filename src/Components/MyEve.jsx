@@ -7,6 +7,7 @@ import { MdEditSquare } from "react-icons/md";
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useSecure from '../Hooks/useSecure';
 
 const MyEve = () => {
     const { user } = useContext(AuthContext);
@@ -14,8 +15,9 @@ const MyEve = () => {
     const [loading, setLoading] = useState(true);
     const [selectedID, setSelectedID] = useState(null)
     const navigate = useNavigate()
+    const axiosSecure = useSecure()
     useEffect(() => {
-        axios.get(`https://assignment-11-server-green-kappa.vercel.app/marathons/email/?contactEmail=${user.email}`, { withCredentials: true })
+        axiosSecure.get(`/marathons/email/?contactEmail=${user.email}`)
             .then(response => {
                 setMyCamp(response.data);
                 setLoading(false);
@@ -134,7 +136,8 @@ const MyEve = () => {
                                             })
                                         }
                                     </Tbody>
-                                </Table> :
+                                </Table> 
+                                :
                                 <h1 className='text-center font-3xl font-semibold'>PLEASE ADD CAMPAIGN FIRST</h1>
                         )
                     }

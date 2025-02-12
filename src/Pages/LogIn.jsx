@@ -25,12 +25,7 @@ const LogIn = () => {
                     text: "User Created Successfully",
                     icon: "success"
                 });
-                navigate(location?.state ? location.state : '/')
-                const user = { Name: res.user.displayName, email: email }
-                axios.post('https://assignment-11-server-green-kappa.vercel.app/jwt', user,{withCredentials:true})
-                    .then(data => {
-                        console.log(data)
-                    })
+                // navigate(location?.state ? location.state : '/') 
             })
             .catch(error => {
                 Swal.fire({

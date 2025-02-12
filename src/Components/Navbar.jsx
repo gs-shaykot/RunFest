@@ -55,6 +55,12 @@ const Navbar = () => {
                                         <NavLink to='/allMarathon'>Marathons</NavLink>
                                     </li>
                                     <li>
+                                        <NavLink to='/result'>Leaderboard</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/contact'>Contact Us</NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to='/dashboard'>Dashboard</NavLink>
                                     </li>
                                 </ul> :
@@ -66,6 +72,9 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavLink to='/allMarathon'>Marathons</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/contact'>Contact Us</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/login'>Login</NavLink>
@@ -89,6 +98,12 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink to='/allMarathon'>Marathons</NavLink>
+                        </li>
+                        <li className={user?.email ? "block" : "hidden"}>
+                            <NavLink to='/result'>Leaderboard</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/contact'>Contact Us</NavLink>
                         </li>
                         <li className={user?.email ? "block" : "hidden"}>
                             <NavLink to='/dashboard'>Dashboard</NavLink>

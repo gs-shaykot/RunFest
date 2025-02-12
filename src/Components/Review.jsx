@@ -43,8 +43,8 @@ const ClientReviewSlider = () => {
     ];
     return (
         <Zoom>
-            <div className="container mx-auto my-10">
-                <h2 className="text-4xl font-bold text-center mb-8">What They Say</h2>
+            <div className="container mx-auto my-10 ">
+                <h2 className="text-4xl font-bold text-center mb-4">What They Say</h2>
                 <Swiper
                     modules={[Pagination, Navigation, Autoplay]} // Include the Autoplay module here
                     slidesPerView={1}

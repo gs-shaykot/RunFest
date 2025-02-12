@@ -15,9 +15,15 @@ import EveDetail from './Pages/EveDetail.jsx';
 import LogIn from './Pages/LogIn';
 import Register from './Pages/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
-import PrivateRoute from './Layout/PrivateRoute.jsx'; 
+import PrivateRoute from './Layout/PrivateRoute.jsx';
 import EvenReg from './Pages/EvenReg.jsx';
-import axios from 'axios';
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+import ContactPage from './Components/ContactPage.jsx';
+import Result from './Components/Result.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,25 +48,37 @@ const router = createBrowserRouter([
         element: <PrivateRoute><AllMarathon></AllMarathon></PrivateRoute>
       },
       {
+        path: '/contact',
+        element: <ContactPage />
+      },
+      {
+        path: '/result',
+        element: <Result />
+      },
+      {
         path: '/dashboard',
         element: <PrivateRoute><Dashboard /></PrivateRoute>
       },
       {
-        path: '/marathons/all/:id', 
-        element:<PrivateRoute><EveDetail /></PrivateRoute> 
+        path: '/marathons/all/:id',
+        element: <PrivateRoute><EveDetail /></PrivateRoute>
       },
       {
-        path: '/eventReg', 
-        element:<PrivateRoute><EvenReg /></PrivateRoute> 
+        path: '/eventReg',
+        element: <PrivateRoute><EvenReg /></PrivateRoute>
       },
     ]
   },
 ]);
 
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
 )

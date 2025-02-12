@@ -1,28 +1,19 @@
+// solve the issue at line 70 that saying Uncaught TypeError: AllMarathon.map is not a function
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Bounce, Fade } from 'react-awesome-reveal';
 import { Helmet } from 'react-helmet';
+import useSecure from '../Hooks/useSecure';
+import useLoadMarathon from '../Hooks/useLoadMarathon';
 
 const AllMarathon = () => {
     const { loader, setLoader } = useContext(AuthContext);
+    const axiossecure = useSecure()
+    const { AllMarathon, isPending,isLoading } = useLoadMarathon()
+    console.log(AllMarathon)
 
-    const [marathons, setMarathons] = useState([]);
-    const [isSorting, setIsSorting] = useState(false);
-    const [sortType, setSortType] = useState('')
-
-    useEffect(() => { 
-        axios
-            .get('https://assignment-11-server-green-kappa.vercel.app/marathons', { withCredentials: true })
-            .then(response => {
-                console.log('Initial Data Fetch:', response.data);
-                setMarathons(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching marathons:', error);
-            });
-    }, []);
 
     const handleSortChange = (e) => {
         const sortType = e.target.value;
@@ -33,8 +24,8 @@ const AllMarathon = () => {
     const fetchSortData = (sortType) => {
         // setIsSorting(true);   
 
-        axios
-            .get(`https://assignment-11-server-green-kappa.vercel.app/marathons/all/sorted/${sortType}`, { withCredentials: true })
+        axiossecure
+            .get(`/marathons/all/sorted/${sortType}`)
             .then(response => {
                 console.log('Sorted Data:', response.data);
                 setMarathons(response.data);
@@ -71,12 +62,12 @@ const AllMarathon = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {loader ? (
+                {isLoading ? (
                     <div className="flex justify-center items-center">
                         <span className="loading loading-bars loading-lg"></span>
                     </div>
                 ) : (
-                    marathons.map(marathon => (
+                    AllMarathon?.map(marathon => (
                         <Fade key={marathon._id}>
                             <div className="bg-white shadow-md rounded-lg overflow-hidden">
                                 <img

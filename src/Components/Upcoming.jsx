@@ -71,73 +71,73 @@ const Upcoming = () => {
     ];
 
     return (
-        <div className="container mx-auto py-10 px-4">
-            <Bounce>
-                <h1 className="mt-5 font-bebas text-center text-4xl md:text-5xl font-semibold underline mb-8">
-                    Upcoming Marathons
-                </h1>
-            </Bounce>
-            <Fade>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {marathons.map((data, index) => (
-                        <div
-                            key={index}
-                            className="flex flex-col md:flex-row bg-secondary rounded-lg shadow-lg overflow-hidden"
-                        >
-                            {/* Image Section */}
-                            <div className="w-full md:w-4/12">
-                                <img
-                                    className="w-full h-full object-cover"
-                                    src={data.image}
-                                    alt={`${data.marathonTitle} poster`}
-                                />
-                            </div>
-
-                            {/* Details Section */}
-                            <div className="w-full md:w-8/12 p-4 flex flex-col justify-between">
-                                <div>
-                                    <h2 className="font-bebas text-2xl md:text-3xl text-primary mb-4">
-                                        {data.marathonTitle}
-                                    </h2>
-                                    <div className="text-gray-300 space-y-2">
-                                        <div className="flex items-center gap-2">
-                                            <FaCalendarCheck className="text-primary" />
-                                            <span>Event Date: {data.eventDate}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <FaClock className="text-primary" />
-                                            <span>
-                                                Registration: {data.registrationStart} -{" "}
-                                                {data.registrationEnd}
-                                            </span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <FaPersonRunning className="text-primary" />
-                                            <span>Category: {data.eventType}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <FaLocationDot className="text-primary" />
-                                            <span>Location: {data.location}</span>
+        <div className="w-full">
+            {/* px-4 */}
+            <div className="container mx-auto py-10">
+                <Bounce>
+                    <h1 className="mt-5 font-bebas text-center text-4xl md:text-5xl font-semibold underline mb-8">
+                        Upcoming Marathons
+                    </h1>
+                </Bounce>
+                <Fade>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {marathons.map((data, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col md:flex-row bg-secondary rounded-lg shadow-lg overflow-hidden"
+                            >
+                                {/* Image Section */}
+                                <div className="w-full md:w-4/12">
+                                    <img
+                                        className="w-full h-full object-cover"
+                                        src={data.image}
+                                        alt={`${data.marathonTitle} poster`}
+                                    />
+                                </div>
+                                {/* Details Section */}
+                                <div className="w-full md:w-8/12 p-4 flex flex-col justify-between">
+                                    <div>
+                                        <h2 className="font-bebas text-2xl md:text-3xl text-primary mb-4">
+                                            {data.marathonTitle}
+                                        </h2>
+                                        <div className="text-gray-300 space-y-2">
+                                            <div className="flex items-center gap-2">
+                                                <FaCalendarCheck className="text-primary" />
+                                                <span>Event Date: {data.eventDate}</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <FaClock className="text-primary" />
+                                                <span>
+                                                    Registration: {data.registrationStart} -{" "}
+                                                    {data.registrationEnd}
+                                                </span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <FaPersonRunning className="text-primary" />
+                                                <span>Category: {data.eventType}</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <FaLocationDot className="text-primary" />
+                                                <span>Location: {data.location}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                {/* Ticket Section */}
-                                <div className="mt-6">
-                                    <h3 className="text-xl md:text-2xl font-bold text-white">
-                                        Ticket Price:{" "}
-                                        <span className="text-primary">{data.ticketPrice}</span>
-                                    </h3>
-                                    <button className="w-full btn bg-primary text-secondary hover:bg-secondary hover:text-primary hover:border-primary hover:border border-0 mt-4">
-                                        Learn More
-                                    </button>
+                                    {/* Ticket Section */}
+                                    <div className="mt-6">
+                                        <h3 className="text-xl md:text-2xl font-bold text-white">
+                                            Ticket Price:{" "}
+                                            <span className="text-primary">{data.ticketPrice}</span>
+                                        </h3>
+                                        <button className="w-full btn bg-primary text-secondary hover:bg-secondary hover:text-primary hover:border-primary hover:border border-0 mt-4">
+                                            Learn More
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </Fade>
-
+                        ))}
+                    </div>
+                </Fade>
+            </div>
         </div>
     );
 };

@@ -29,7 +29,7 @@ const Register = () => {
             });
             return;
         }
-
+        
         createUser(email, password)
             .then(res => { 
                 updateProfile(auth.currentUser, {

@@ -18,19 +18,20 @@ const SixMarathon = () => {
     }, []);
 
     return (
-        <div className='container mx-auto'>
-            <Bounce>
-                <h1 className='mt-5 font-bebas text-center text-4xl md:text-5xl font-semibold underline mb-8'>
-                    Running Marathons
-                </h1>
-            </Bounce>
-
-            <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {
-                    marathons.map((marathon) => (
-                        <MarathonC key={marathon._id} marathon={marathon}></MarathonC>
-                    ))
-                }
+        <div className="w-full">
+            <div className='container mx-auto'>
+                <Bounce>
+                    <h1 className='mt-5 font-bebas text-center text-4xl md:text-5xl font-semibold underline mb-8'>
+                        Running Marathons
+                    </h1>
+                </Bounce>
+                <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                    {
+                        marathons.map((marathon) => (
+                            <MarathonC key={marathon._id} marathon={marathon}></MarathonC>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );
